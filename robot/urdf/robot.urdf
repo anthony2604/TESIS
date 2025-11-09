@@ -162,8 +162,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.45"
-      upper="-0"
+      lower="-0.41"
+      upper="-0.015"
       effort="200"
       velocity="0.1" />
   </joint>
@@ -284,6 +284,65 @@
       velocity="5" />
   </joint>
   
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="0.0030076 -0.054303 -0.054303"
+        rpy="0 0 0" />
+      <mass
+        value="0.65092" />
+      <inertia
+        ixx="0.00038176"
+        ixy="5.0233E-06"
+        ixz="5.0233E-06"
+        iyy="0.00032158"
+        iyz="9.9776E-06"
+        izz="0.00032158" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 -0.075 0"
+      rpy="0 0 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="100"
+      velocity="3" />
+  </joint>
+  
   <transmission name="link_1_trans">
   	<type>transmission_interface/SimpleTransmission</type>
   	<joint name="joint1">
@@ -333,11 +392,30 @@
   	</actuator>
   </transmission>
   
+  <transmission name="link_5_trans">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="joint5">
+	    <command_interface>position</command_interface>
+	    <state_interface>position</state_interface>
+	    <state_interface>velocity</state_interface>
+  	</joint>
+  	<actuator name="link_5_motor">
+    		<mechanicalReduction>5</mechanicalReduction>
+  	</actuator>
+  </transmission>
+  
   <gazebo>
 	  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-	    <robot_sim_type>gazebo_ros2_control/DefaultRobotHWSim</robot_sim_type>
+	    <robotParam>robot_description</robotParam>
+	    <robotParamNode>robot_state_publisher</robotParamNode>
+	    <robotSimType>gazebo_ros2_control/GazeboSystem</robotSimType>
+	    <parameters>/home/anthony/tesis/src/robot/config/joint_trajectory_controller.yaml</parameters>
 	  </plugin>
   </gazebo>
+
+
+
+
 
   
   <gazebo reference="link1">
@@ -353,6 +431,10 @@
   </gazebo>
   
   <gazebo reference="link4">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="link5">
 	<selfCollide>true</selfCollide>
   </gazebo>
   
