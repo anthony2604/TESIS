@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robot">
+  
+  <link name="world"/>
+  <joint name="base_joint" type="fixed">
+  	<parent link="world"/>
+  	<child link="base_link"/>
+  	<origin rpy="-1.5708 0 0" xyz="0.0 0.0 0.0"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.044019 -0.07242 0.079605"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="0.002621"
+        ixy="2.8857E-05"
+        ixz="-4.632E-05"
+        iyy="0.0070981"
+        iyz="1.3999E-05"
+        izz="0.0092405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="0.0042013 0.31899 -0.0042033"
+        rpy="0 0 0" />
+      <mass
+        value="4" />
+      <inertia
+        ixx="0.010036"
+        ixy="9.1227E-08"
+        ixz="-4.9329E-06"
+        iyy="0.0023642"
+        iyz="-3.3872E-08"
+        izz="0.010036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0.049071 -0.083804 -0.08077"
+      rpy="0 -0.78604 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="200"
+      velocity="10" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.22838 4.6872E-05 0.057672"
+        rpy="0 0 0" />
+      <mass
+        value="3.5" />
+      <inertia
+        ixx="0.0041793"
+        ixy="2.9555E-06"
+        ixz="-1.9573E-05"
+        iyy="0.020257"
+        iyz="2.7634E-06"
+        izz="0.023018" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="prismatic">
+    <origin
+      xyz="-3.5836E-05 0.482 0.00030003"
+      rpy="1.5708 -0.78604 -3.1416" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.45"
+      upper="-0"
+      effort="200"
+      velocity="0.1" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.1521 4.4608E-05 0.0474"
+        rpy="0 0 0" />
+      <mass
+        value="2.5" />
+      <inertia
+        ixx="0.0024339"
+        ixy="4.5696E-06"
+        ixz="-0.000237"
+        iyy="0.018082"
+        iyz="-3.1424E-07"
+        izz="0.019926" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.402 0 0.1154"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="200"
+      velocity="5" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="0.00081752 -0.11511 0.045937"
+        rpy="0 0 0" />
+      <mass
+        value="1.5" />
+      <inertia
+        ixx="0.00038829"
+        ixy="3.4267E-06"
+        ixz="-4.0855E-06"
+        iyy="0.00036372"
+        iyz="-8.0054E-06"
+        izz="0.00037722" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot/meshes/link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="0.3 0 0"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="3.14"
+      effort="50"
+      velocity="5" />
+  </joint>
+  
+  <transmission name="link_1_trans">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="joint1">
+	    <command_interface>position</command_interface>
+	    <state_interface>position</state_interface>
+	    <state_interface>velocity</state_interface>
+  	</joint>
+  	<actuator name="link_1_motor">
+    		<mechanicalReduction>20</mechanicalReduction>
+  	</actuator>
+  </transmission>
+
+  
+  <transmission name="link_2_trans">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="joint2">
+	    <command_interface>position</command_interface>
+	    <state_interface>position</state_interface>
+	    <state_interface>velocity</state_interface>
+  	</joint>
+  	<actuator name="link_2_motor">
+    		<mechanicalReduction>10</mechanicalReduction>
+  	</actuator>
+  </transmission>
+  
+  <transmission name="link_3_trans">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="joint3">
+	    <command_interface>position</command_interface>
+	    <state_interface>position</state_interface>
+	    <state_interface>velocity</state_interface>
+  	</joint>
+  	<actuator name="link_3_motor">
+    		<mechanicalReduction>10</mechanicalReduction>
+  	</actuator>
+  </transmission>
+  
+  <transmission name="link_4_trans">
+  	<type>transmission_interface/SimpleTransmission</type>
+  	<joint name="joint4">
+	    <command_interface>position</command_interface>
+	    <state_interface>position</state_interface>
+	    <state_interface>velocity</state_interface>
+  	</joint>
+  	<actuator name="link_4_motor">
+    		<mechanicalReduction>5</mechanicalReduction>
+  	</actuator>
+  </transmission>
+  
+  <gazebo>
+	  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+	    <robot_sim_type>gazebo_ros2_control/DefaultRobotHWSim</robot_sim_type>
+	  </plugin>
+  </gazebo>
+
+  
+  <gazebo reference="link1">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="link2">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="link3">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="link4">
+	<selfCollide>true</selfCollide>
+  </gazebo>
+  
+</robot>

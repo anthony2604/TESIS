@@ -1,0 +1,43 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # frecuencia de actualización en Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    robot_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+robot_arm_controller:
+  ros__parameters:
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    # Opcional: si tienes un URDF con límites definidos
+    allow_partial_joints_goal: false
+    constraints:
+      goal_time: 0.5
+      stopped_velocity_tolerance: 0.02
+      joint1:
+        trajectory: 0.1
+        goal: 0.1
+      joint2:
+        trajectory: 0.1
+        goal: 0.1
+      joint3:
+        trajectory: 0.1
+        goal: 0.1
+      joint4:
+        trajectory: 0.1
+        goal: 0.1
+
